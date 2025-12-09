@@ -1,0 +1,189 @@
+{
+  "triage": [
+    {
+      "cluster_id": 3,
+      "size": 42,
+      "severity": 0.19201690476190478,
+      "keywords": "app, tv, spotify, android, android tv, music"
+    },
+    {
+      "cluster_id": 2,
+      "size": 28,
+      "severity": 0.19071535714285714,
+      "keywords": "app, tv, problem, good, sound, hard"
+    },
+    {
+      "cluster_id": 0,
+      "size": 57,
+      "severity": 0.17687894736842102,
+      "keywords": "music, app, song, play, playing, sound"
+    },
+    {
+      "cluster_id": 1,
+      "size": 31,
+      "severity": 0.17642774193548383,
+      "keywords": "app, song, tv, songs, play, playing"
+    },
+    {
+      "cluster_id": 5,
+      "size": 15,
+      "severity": 0.1607566666666667,
+      "keywords": "app, getting, open, error, network, problems"
+    },
+    {
+      "cluster_id": 4,
+      "size": 30,
+      "severity": 0.13529933333333333,
+      "keywords": "tv, app, audio, android, doesn, work"
+    }
+  ],
+  "solutions": {
+    "0": {
+      "cluster_id": 0,
+      "problem_summary": "Users report that the app fails to play music, with songs skipping after a few seconds or playing without sound. This issue persists despite troubleshooting steps like reinstalling or clearing cache.",
+      "key_signals": [
+        "Songs skip rapidly after 1-2 seconds without sound.",
+        "No sound output during playback.",
+        "App becomes 'useless' due to playback failure.",
+        "Issue often occurs after recent updates.",
+        "Reinstalling, cache clearing, or session terminating do not resolve the issue."
+      ],
+      "solutions": [
+        "Investigate recent code changes related to audio playback and track progression logic.",
+        "Implement robust error handling for audio output failures and track skipping events.",
+        "Add detailed logging for playback state transitions (e.g., 'playing', 'skipped', 'error') and audio device status.",
+        "Conduct comprehensive regression testing for playback across various Android TV models and OS versions.",
+        "Provide clear in-app diagnostics or troubleshooting steps for audio issues."
+      ],
+      "metrics": [
+        "Playback error rate (e.g., track_skipped_without_completion events).",
+        "No-sound playback rate.",
+        "User reports of 'app not playing music'.",
+        "Average session duration."
+      ]
+    },
+    "3": {
+      "cluster_id": 3,
+      "problem_summary": "The Spotify app on Android TV devices (e.g., Nvidia Shield, Sony, Samsung TVs) is severely broken, exhibiting issues like songs skipping, no audio, and loss of 'Now Playing' state. Users report these problems have persisted for months despite extensive troubleshooting.",
+      "key_signals": [
+        "App is 'completely broken' on Android TV.",
+        "Songs skip for no reason or play without audio.",
+        "'Now Playing' screen disappears after pausing or switching apps.",
+        "Issues reported on various Android TV brands (Nvidia Shield, Sony, Samsung).",
+        "Problems persist for months, indicating a long-standing bug.",
+        "Reinstalling, rebooting TV, or resetting TV do not help."
+      ],
+      "solutions": [
+        "Prioritize a dedicated engineering sprint for Android TV app stability and feature parity.",
+        "Implement robust state management for 'Now Playing' to prevent loss of context during app switching.",
+        "Conduct comprehensive regression testing on key Android TV devices (Nvidia Shield, Sony, Samsung).",
+        "Enhance logging for device-specific audio and playback issues on Android TV.",
+        "Investigate potential conflicts with Android TV OS updates or specific hardware drivers."
+      ],
+      "metrics": [
+        "Android TV specific playback error rate.",
+        "'Now Playing' state retention rate.",
+        "Crash rate on Android TV.",
+        "User reports of 'Android TV not working'."
+      ]
+    },
+    "1": {
+      "cluster_id": 1,
+      "problem_summary": "Users experience frequent playback interruptions, including stuttering, random song stops, and rapid skipping through playlists. The app also occasionally crashes or kicks users out, making it unusable.",
+      "key_signals": [
+        "Songs 'stutter' during playback.",
+        "Songs stop playing randomly or after ads.",
+        "App kicks users out or crashes frequently.",
+        "Rapid skipping through entire playlists.",
+        "Reinstalling the app does not resolve the issue."
+      ],
+      "solutions": [
+        "Analyze audio buffer management and streaming stability to address stuttering.",
+        "Investigate ad integration points for potential conflicts causing playback stops or crashes.",
+        "Implement crash reporting and analyze stack traces for common crash points.",
+        "Review playlist progression logic to prevent rapid, unintended skipping.",
+        "Optimize resource usage to prevent app termination by the OS."
+      ],
+      "metrics": [
+        "Playback stuttering frequency.",
+        "App crash rate during playback.",
+        "Ad-related playback interruption rate.",
+        "Playlist completion rate vs. skip rate."
+      ]
+    },
+    "4": {
+      "cluster_id": 4,
+      "problem_summary": "The app is completely broken on Android TV, failing to play music or producing no audio, with tracks frequently skipping. This issue has persisted for months, specifically affecting Android TV devices while other devices work fine.",
+      "key_signals": [
+        "App 'doesn't even play music' on Android TV.",
+        "No audio output from Sony TV and other Android TV devices.",
+        "Tracks skip frequently for no reason.",
+        "Issue started around December and persists for months.",
+        "Problem is specific to Android TV; other devices work fine.",
+        "Recent updates are cited as breaking the app."
+      ],
+      "solutions": [
+        "Isolate and debug the audio output pipeline specifically for Android TV OS versions.",
+        "Rollback or hotfix recent updates that introduced playback regressions on Android TV.",
+        "Implement device-specific audio driver compatibility checks.",
+        "Enhance telemetry to differentiate playback issues on Android TV versus other platforms.",
+        "Collaborate with Android TV manufacturers (e.g., Sony) to resolve compatibility issues."
+      ],
+      "metrics": [
+        "Android TV specific 'no audio' rate.",
+        "Android TV specific track skip rate.",
+        "Time to resolution for Android TV critical bugs.",
+        "User reports of 'Android TV app broken'."
+      ]
+    },
+    "2": {
+      "cluster_id": 2,
+      "problem_summary": "The app exhibits severe performance issues on TV devices, causing the TV to hang or become unresponsive, especially after extended use. It is also prone to frequent crashes and stops working entirely, requiring a hard reboot of the TV.",
+      "key_signals": [
+        "App causes TV to hang or become unresponsive.",
+        "Performance degrades with extended use ('more songs you play').",
+        "TV 'dies' when switching to another app after using Spotify.",
+        "Frequent crashes ('buggy and crash all the time').",
+        "App stops working for days, showing 'can't play' errors.",
+        "Requires hard reboot (power cable removal) of the TV."
+      ],
+      "solutions": [
+        "Profile memory and CPU usage on Android TV devices, especially during long playback sessions and app switching.",
+        "Implement aggressive resource cleanup when the app goes to the background or is terminated.",
+        "Optimize UI rendering and background processes to reduce system load.",
+        "Enhance crash reporting to capture out-of-memory or ANR (Application Not Responding) events.",
+        "Investigate potential memory leaks or resource exhaustion issues."
+      ],
+      "metrics": [
+        "App-induced TV hang/freeze rate.",
+        "Memory usage over time during playback.",
+        "CPU usage during playback and background.",
+        "ANR rate on Android TV."
+      ]
+    },
+    "5": {
+      "cluster_id": 5,
+      "problem_summary": "Users are unable to open the app, which either gets stuck on a gray screen or displays network connection errors. This issue often appears after an update and is specific to Spotify, as other apps on the device have no network problems.",
+      "key_signals": [
+        "App 'won't open' or gets stuck on a gray screen/logo.",
+        "Displays 'network issue' errors.",
+        "Network problems are specific to Spotify; other apps work fine.",
+        "Issue often appears after an app update.",
+        "App becomes completely unusable."
+      ],
+      "solutions": [
+        "Investigate app startup sequence and splash screen logic for potential hangs.",
+        "Debug network connectivity checks and error handling, ensuring they are not overly aggressive or misconfigured.",
+        "Implement robust update rollback mechanisms or phased rollouts to mitigate update-induced issues.",
+        "Enhance logging for network errors and app initialization failures.",
+        "Verify DNS resolution and proxy settings within the app's network stack."
+      ],
+      "metrics": [
+        "App launch success rate.",
+        "Network error rate during app startup.",
+        "User reports of 'app not opening'.",
+        "Crash rate during app initialization."
+      ]
+    }
+  }
+}

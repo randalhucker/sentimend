@@ -1,0 +1,188 @@
+{
+  "triage": [
+    {
+      "cluster_id": 1,
+      "size": 174,
+      "severity": 0.2931103448275862,
+      "keywords": "whatsapp, account, business, banned, whatsapp business, app"
+    },
+    {
+      "cluster_id": 2,
+      "size": 107,
+      "severity": 0.28821738317757006,
+      "keywords": "account, app, banned, business, reason, time"
+    },
+    {
+      "cluster_id": 0,
+      "size": 229,
+      "severity": 0.26312109170305675,
+      "keywords": "app, update, message, messages, business, broadcast"
+    },
+    {
+      "cluster_id": 3,
+      "size": 156,
+      "severity": 0.2492551282051282,
+      "keywords": "whatsapp, business, app, whatsapp business, problem, messages"
+    },
+    {
+      "cluster_id": 5,
+      "size": 79,
+      "severity": 0.22340253164556967,
+      "keywords": "status, quality, video, app, update, problem"
+    },
+    {
+      "cluster_id": 4,
+      "size": 45,
+      "severity": 0.2005331111111111,
+      "keywords": "music, whatsapp, songs, status, song, use"
+    }
+  ],
+  "solutions": {
+    "0": {
+      "cluster_id": 0,
+      "problem_summary": "Users are experiencing critical performance issues and message delivery failures immediately after app updates, including slow loading, blank statuses, and app crashes. This severely impacts their ability to communicate and conduct business.",
+      "key_signals": [
+        "App performance degradation post-update (slow, no loading).",
+        "Message sending/receiving failures despite good network.",
+        "Statuses appearing blank or not loading.",
+        "App crashes, especially after network changes.",
+        "Difficulty receiving incoming messages."
+      ],
+      "solutions": [
+        "Implement robust regression testing for core functionalities (messaging, status, app launch) before releasing updates.",
+        "Optimize app startup time and background processes to prevent slowness.",
+        "Enhance error logging for message delivery failures and app crashes to identify root causes.",
+        "Improve network handling logic to prevent crashes and message delays when switching connectivity.",
+        "Provide clear in-app guidance for troubleshooting common post-update issues."
+      ],
+      "metrics": [
+        "Crash-free user rate (post-update).",
+        "Message delivery success rate.",
+        "App launch time (post-update).",
+        "User-reported latency for status loading."
+      ]
+    },
+    "1": {
+      "cluster_id": 1,
+      "problem_summary": "Users are reporting frequent and seemingly unjustified account bans on WhatsApp Business, leading to loss of customer access, chat history, and requiring new phone numbers. This severely disrupts their business operations and communication.",
+      "key_signals": [
+        "Accounts banned 'for no reason' or without clear policy violation.",
+        "Repeated bans on the same account, sometimes permanent.",
+        "Users claiming legitimate business use.",
+        "Loss of access to customer chats and business data.",
+        "Forced to acquire new phone numbers to continue business."
+      ],
+      "solutions": [
+        "Review and refine automated account banning algorithms to reduce false positives for legitimate business accounts.",
+        "Implement a more transparent and efficient appeal process with clear reasons for bans and expected resolution times.",
+        "Provide in-app warnings or educational resources on policy compliance before imposing bans.",
+        "Develop a mechanism for businesses to backup or export critical chat data even if an account is under review.",
+        "Investigate specific patterns or triggers causing legitimate business accounts to be flagged."
+      ],
+      "metrics": [
+        "False positive rate for account bans.",
+        "Account ban appeal success rate.",
+        "Time to resolve account ban appeals.",
+        "Number of repeat bans per user."
+      ]
+    },
+    "3": {
+      "cluster_id": 3,
+      "problem_summary": "Users are experiencing general app instability, frequent crashes, and various unspecified malfunctions, leading to a frustrating and unreliable experience. Reinstallation does not resolve these persistent issues.",
+      "key_signals": [
+        "Frequent app crashes.",
+        "General 'malfunctioning' or 'many types of problems'.",
+        "Issues persist even after reinstallation.",
+        "User frustration due to app unreliability.",
+        "Mentions of issues occurring 'daily' or 'since last few days'."
+      ],
+      "solutions": [
+        "Conduct a thorough code audit to identify memory leaks, race conditions, or unhandled exceptions causing crashes.",
+        "Implement comprehensive crash reporting and analysis tools to pinpoint specific crash scenarios and root causes.",
+        "Optimize app resource usage (CPU, memory, battery) to improve stability and reduce general malfunctions.",
+        "Release targeted bug fixes for identified stability issues in incremental updates.",
+        "Improve internal QA processes to catch general instability before release."
+      ],
+      "metrics": [
+        "Crash-free user rate.",
+        "App stability score (e.g., based on ANR rate).",
+        "User-reported bug rate.",
+        "Average session duration before crash."
+      ]
+    },
+    "2": {
+      "cluster_id": 2,
+      "problem_summary": "Users are experiencing repeated and sudden account bans or logouts without clear justification, often shortly after restoration, leading to significant business disruption and loss of data. Appeals are frequently unresponsive.",
+      "key_signals": [
+        "Repeated account bans/blocks.",
+        "Accounts being banned shortly after restoration.",
+        "Logouts occurring without user action.",
+        "Lack of clear reason for bans.",
+        "Unresponsive or ineffective appeal process.",
+        "Loss of business data/access due to bans."
+      ],
+      "solutions": [
+        "Investigate and rectify the underlying logic causing immediate re-banning after restoration.",
+        "Improve the responsiveness and effectiveness of the account appeal system.",
+        "Implement clearer in-app notifications and explanations for account actions (bans, logouts).",
+        "Enhance data backup and recovery options for business users to mitigate loss during account issues.",
+        "Review and update policy enforcement mechanisms to prevent erroneous bans on established accounts."
+      ],
+      "metrics": [
+        "Re-ban rate within 24 hours of restoration.",
+        "Appeal resolution time.",
+        "User satisfaction with appeal process.",
+        "Number of involuntary logouts."
+      ]
+    },
+    "5": {
+      "cluster_id": 5,
+      "problem_summary": "Users are unable to upload or view statuses, particularly those with media (pictures, videos), experiencing endless loading, error messages, and automatic video shortening. This issue often appears after updates and impacts media sharing functionality.",
+      "key_signals": [
+        "Status uploads failing or showing endless loading.",
+        "Error messages during status upload.",
+        "Videos being automatically shortened (e.g., to 30 seconds) but still failing to upload.",
+        "Pictures/videos not displaying in statuses.",
+        "Slow or failed downloads of media (voice notes, group media).",
+        "Issues appearing post-update."
+      ],
+      "solutions": [
+        "Debug and fix status upload API endpoints and media processing pipelines.",
+        "Optimize video compression and transcoding logic to ensure successful uploads within length limits.",
+        "Improve error handling and user feedback for status upload failures.",
+        "Enhance media caching and loading mechanisms for status viewing.",
+        "Conduct thorough testing of media-related features across various network conditions and device types."
+      ],
+      "metrics": [
+        "Status upload success rate.",
+        "Status view loading time.",
+        "Media download success rate.",
+        "Error rate for status-related operations."
+      ]
+    },
+    "4": {
+      "cluster_id": 4,
+      "problem_summary": "Users are frustrated with the limited music selection for status updates and the inability to search for specific songs. Furthermore, using the music feature often prevents the status from posting successfully.",
+      "key_signals": [
+        "Limited music library for status updates.",
+        "Inability to search for specific songs.",
+        "Status upload failures when the music feature is used.",
+        "Comparison to WhatsApp Messenger's music features.",
+        "User dissatisfaction with available music choices."
+      ],
+      "solutions": [
+        "Expand the music library available for status updates, potentially through new licensing agreements.",
+        "Implement a search functionality for music within the status editor.",
+        "Debug and fix the bug preventing status uploads when the music feature is enabled.",
+        "Evaluate user demand for more advanced music editing features in statuses.",
+        "Provide clear error messages if a status fails to post due to music-related issues."
+      ],
+      "metrics": [
+        "Status upload success rate with music.",
+        "User engagement with music feature in statuses.",
+        "Number of music library searches.",
+        "User satisfaction score for music feature."
+      ]
+    }
+  }
+}

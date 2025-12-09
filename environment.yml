@@ -1,0 +1,19 @@
+name: sentimend
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.13.9
+  - pip=25.3
+  - altair=5.5.0
+  - datasets=4.4.1
+  - openai=2.7.1
+  - pyarrow=21.0.0
+  - RapidFuzz=3.14.3
+  - scikit-learn=1.7.2
+  - sentence-transformers=5.1.2
+  - streamlit=1.51.0
+  - pip:
+    - google-genai==1.53.0
+    - google-play-scraper==1.2.7
+    - vaderSentiment==3.3.2
