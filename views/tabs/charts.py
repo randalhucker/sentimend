@@ -65,14 +65,13 @@ def render_charts(app_id: str):
         width="stretch",
     )
 
+    st.divider()
+    st.subheader(
+        "Cluster Map (t-SNE)",
+        help="2D projection of review similarity. Points closer together are semantically similar.",
+    )
     viz_df = get_viz_df(app_id)
     if viz_df is not None and not viz_df.empty:
-        st.divider()
-        st.subheader(
-            "Cluster Map (t-SNE)",
-            help="2D projection of review similarity. Points closer together are semantically similar.",
-        )
-
         # Create an interactive scatter plot
         scatter = (
             alt.Chart(viz_df)
@@ -92,3 +91,7 @@ def render_charts(app_id: str):
         )
 
         st.altair_chart(scatter, width="stretch")
+    else:
+        st.info(
+            "Cluster visualization is not available. Please run triage analysis first."
+        )
