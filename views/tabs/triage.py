@@ -106,6 +106,7 @@ def render_triage(app_id: str, app_title: str):
                     return
 
                 set_clusters_triage_and_viz(app_id, clusters, triage_df, viz_df)
+                st.rerun()
 
     # Retrieve Computed Data
     triage_df = get_triage_df(app_id)
